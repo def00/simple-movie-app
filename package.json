@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "babel-node ./bin/www",
+    "dev": "npx babel-node ./bin/www",
     "db:migrate": "npx knex migrate:latest",
     "db:seed": "npx knex seed:run",
     "test": "ENV=test npx knex migrate:latest && ENV=test npx knex seed:run && BABEL_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit",
