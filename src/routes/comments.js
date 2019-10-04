@@ -12,8 +12,7 @@ const commentRepository = new CommentsRepository(Comment)
 
 /* GET comments listing. */
 router.get('/', async (req, res) => {
-  const comments = await commentRepository.listAll()
-  return res.json(await serializer(comments, commentSerializer))
+  return res.json(await serializer(await commentRepository.listAll(), commentSerializer))
 })
 
 /* POST comment */
