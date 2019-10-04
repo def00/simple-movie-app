@@ -15,6 +15,18 @@ describe('Should check comments routes', async () => {
     chai.expect(response.body).to.length(4)
   })
 
+  it('check POST /comments response with wrong post data', async () => {
+    const request = chai.request(server)
+    const response = await request.post('/comments').send({
+      movie_id: 1,
+      email: 'test',
+      author: 'Test',
+      comment: 'test'
+    })
+
+    chai.expect(response.status).to.be.eq(422)
+  })
+
   it('check POST /comments response', async () => {
     const request = chai.request(server)
     const response = await request.post('/comments').send({
