@@ -24,6 +24,16 @@ describe('Should check movies routes', async () => {
     chai.expect(response.status).to.be.eq(201)
   })
 
+  it('check POST /movies response with same movie', async () => {
+    const request = chai.request(server)
+    const response = await request.post('/movies').send({
+      query: 'Avatar'
+    })
+
+    chai.expect(response.status).to.be.eq(409)
+  })
+
+
   it('check GET /movies reponse after adding new movie', async () => {
     const request = chai.request(server)
     const response = await request.get('/movies')

@@ -7,6 +7,7 @@ exports.up = function(knex) {
     t.string('genre').nullable();
     t.string('country').nullable();
     t.text('plot').nullable();
+    t.string('imdbID').unique()
   });
 };
 

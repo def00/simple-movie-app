@@ -24,12 +24,15 @@ router.post('/', async (req, res) => {
   try {
     const movieData = await new MoviesSearch(request).search(req.body.query)
     if (movieData) {
-      await movieFactory.create(movieData)
+      if (await movieFactory.create(movieData)) {
+        return res.status(201).send()
+      }
     }
   } catch (error) {
     return res.status(500).json(error.error)
   }
-  return res.status(201).send()
+  // the movie already exists in db
+  return res.status(409).json('The movie is already in our db')
 })
 
 export default router

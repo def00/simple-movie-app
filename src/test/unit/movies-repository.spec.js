@@ -5,7 +5,8 @@ import Movie from '../../models/movie'
 describe('Should check MoviesRepository', async () => {
   const repository = new MoviesRepository(Movie)
   const queryMockService = {
-    async insert() {}
+    async insert() {},
+    async where() {}
   }
 
   it('check calling create method', async () => {
@@ -25,6 +26,16 @@ describe('Should check MoviesRepository', async () => {
 
     mock.expects("query").returns(queryMockService).once()
     await repository.listAll()
+    mock.verify();
+    mock.restore()
+  })
+
+  it('check calling existsInDb method', async () => {
+    const mock = sinon.mock(Movie)
+    const queryMock = sinon.mock(queryMockService)
+    mock.expects("query").returns(queryMockService).once()
+    queryMock.expects("where").once()
+    await repository.existsInDb(null)
     mock.verify();
     mock.restore()
   })
