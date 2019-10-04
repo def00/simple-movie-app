@@ -1,0 +1,28 @@
+{
+  "name": "simple-movie-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "babel-node ./bin/www",
+    "db:migrate": "npx knex migrate:latest",
+    "db:seed": "npx knex seed:run"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-validator": "^6.2.0",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "knex": "^0.19.4",
+    "morgan": "~1.9.1",
+    "objection": "^1.6.11",
+    "request-promise-native": "^1.0.7",
+    "sqlite3": "^4.1.0"
+  },
+  "author": "Andrzej Kretowicz <andrzej@kofeinka.net>",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
