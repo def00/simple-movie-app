@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "babel-node ./bin/www",
+    "dev": "babel-node ./bin/www",
     "db:migrate": "npx knex migrate:latest",
     "db:seed": "npx knex seed:run",
-    "test": "ENV=test npx knex migrate:latest && ENV=test npx knex seed:run && BABEL_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit"
+    "test": "ENV=test npx knex migrate:latest && ENV=test npx knex seed:run && BABEL_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
