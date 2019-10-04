@@ -1,4 +1,4 @@
-import API_KEY from '../../config/api-key'
+import API_KEY from '../config/api-key'
 
 const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`
 

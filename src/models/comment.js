@@ -1,5 +1,5 @@
 import {Model} from 'objection'
-import knex from '../../config/database'
+import knex from '../config/database'
 import Movie from './movie'
 Model.knex(knex)
 
