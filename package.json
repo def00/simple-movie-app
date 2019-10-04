@@ -10,7 +10,7 @@
     "dev": "NODE_ENV=development npm-run-all server",
     "db:migrate": "npx knex migrate:latest",
     "db:seed": "npx knex seed:run",
-    "test": "NODE_ENV=test npx knex migrate:latest && NODE_ENV=test npx knex seed:run && mocha --require @babel/register './src/**/*.spec.js*' --exit",
+    "test": "NODE_ENV=test npx knex migrate:latest && NODE_ENV=test npx knex seed:run && NODE_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "./node_modules/.bin/babel -d ./build ./src -s --presets \"@babel/preset-env\" --plugins \"@babel/plugin-transform-runtime\"",
     "build": "npm run clean && npm run build-babel",
