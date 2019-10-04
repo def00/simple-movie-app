@@ -6,18 +6,21 @@
     "node": "11.13.0"
   },
   "scripts": {
-    "dev": "npx babel-node ./bin/www",
+    "server": "babel-node ./bin/www",
+    "dev": "NODE_ENV=development npm-run-all server",
     "db:migrate": "npx knex migrate:latest",
     "db:seed": "npx knex seed:run",
-    "test": "ENV=test npx knex migrate:latest && ENV=test npx knex seed:run && BABEL_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit",
+    "test": "NODE_ENV=test npx knex migrate:latest && NODE_ENV=test npx knex seed:run && mocha --require @babel/register './src/**/*.spec.js*' --exit",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "./node_modules/.bin/babel -d ./build ./src -s --presets \"@babel/preset-env\" --plugins \"@babel/plugin-transform-runtime\"",
     "build": "npm run clean && npm run build-babel",
-    "start": "node ./build/app.js"
+    "start": "node ./bin/prod"
   },
   "dependencies": {
+    "@babel/runtime": "^7.6.2",
     "@babel/runtime-corejs2": "^7.6.2",
     "cookie-parser": "~1.4.4",
+    "core-js": "^2.6.9",
     "debug": "~2.6.9",
     "dotenv": "^8.1.0",
     "express": "~4.16.1",
@@ -28,74 +31,33 @@
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
+    "npm-run-all": "^4.1.5",
     "objection": "^1.6.11",
+    "regenerator-runtime": "^0.13.3",
     "request-promise-native": "^1.0.7",
     "sqlite3": "^4.1.0"
   },
   "author": "Andrzej Kretowicz <andrzej@kofeinka.net>",
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
     "@babel/node": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.3.0",
     "mocha": "^6.2.1",
     "nodemon": "^1.19.3",
     "sinon": "^7.5.0"
-  },
-  "babel": {
-    "env": {
-      "test": {
-        "presets": [
-          "@babel/preset-env"
-        ],
-        "plugins": [
-          [
-            "@babel/plugin-transform-runtime",
-            {
-              "regenerator": true,
-              "corejs": 2
-            }
-          ]
-        ]
-      },
-      "developnent": {
-        "presets": [
-          "@babel/preset-env"
-        ],
-        "plugins": [
-          [
-            "@babel/plugin-transform-runtime",
-            {
-              "regenerator": true,
-              "corejs": 2
-            }
-          ]
-        ]
-      },
-      "production": {
-        "presets": [
-          "@babel/preset-env"
-
-        ],
-        "plugins": [
-          [
-            "@babel/plugin-transform-runtime",
-            {
-              "regenerator": true,
-              "corejs": 2
-            }
-          ]
-        ]
-      }
-    },
-    "presets": [
-      "@babel/preset-env"
-    ]
   }
 }
