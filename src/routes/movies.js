@@ -12,7 +12,11 @@ const movieFactory = new MovieFactory(movieRepository)
 
 /* GET movies listing. */
 router.get('/', async (req, res) => {
-  return res.json(await serializer(await movieRepository.listAll(), movieSerializer))
+  try {
+    return res.json(await serializer(await movieRepository.listAll(), movieSerializer))
+  } catch (error) {
+    return res.status(500).json(error)
+  }
 })
 
 /* POST search for movies */

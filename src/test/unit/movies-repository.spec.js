@@ -2,13 +2,13 @@ import sinon from 'sinon'
 import MoviesRepository from '../../repositories/movies-repository'
 import Movie from '../../models/movie'
 
-describe('movies repository test', async () => {
+describe('Should check MoviesRepository', async () => {
   const repository = new MoviesRepository(Movie)
   const queryMockService = {
     async insert() {}
   }
 
-  it('should check if create function was called', async () => {
+  it('check calling create method', async () => {
     const mock = sinon.mock(Movie)
     const queryMock = sinon.mock(queryMockService)
 
@@ -20,7 +20,7 @@ describe('movies repository test', async () => {
     queryMock.restore()
   })
 
-  it('should check if list function was called', async () => {
+  it('check calling listAll method', async () => {
     const mock = sinon.mock(Movie)
 
     mock.expects("query").returns(queryMockService).once()

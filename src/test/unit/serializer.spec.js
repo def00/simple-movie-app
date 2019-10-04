@@ -9,7 +9,7 @@ describe('Should test serializer function', async () => {
     await chai.expect(serializer()).to.be.rejectedWith(Error)
   })
 
-  it('check if serializer is returning promise', async () => {
+  it('check if serializer is returning a promise', async () => {
     await chai.expect(serializer([], () => {})).to.be.an('promise')
   })
 })

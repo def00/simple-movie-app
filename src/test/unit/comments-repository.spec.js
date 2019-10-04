@@ -3,7 +3,7 @@ import sinon from 'sinon'
 import CommentsRepository from '../../repositories/comments-repository'
 import Comment from '../../models/comment'
 
-describe('comments repository test', async () => {
+describe('Should check CommentsRepository', async () => {
   const repository = new CommentsRepository(Comment)
   const queryMockService = {
     async insert() {},
@@ -11,7 +11,7 @@ describe('comments repository test', async () => {
   }
 
 
-  it('should check if create function was called', async () => {
+  it('check calling create function', async () => {
     const mock = sinon.mock(Comment)
     const queryMock = sinon.mock(queryMockService)
 
@@ -23,7 +23,7 @@ describe('comments repository test', async () => {
     queryMock.restore()
   })
 
-  it('should check if list function was called', async () => {
+  it('check calling list function', async () => {
     const mock = sinon.mock(Comment)
     const queryMock = sinon.mock(queryMockService)
 

@@ -6,15 +6,15 @@ import movieData from './data-providers/movie'
 
 chai.use(chaiAsPromised)
 
-describe('test movieSerailizer', async () => {
+describe('Should test movieSerailizer', async () => {
   const movie = createMovie(movieData)
 
-  it('should check function response with wrong data provided', async () => {
+  it('check throwing error when from arguments provided', async () => {
     const wrongInput = {}
     await chai.expect(movieSerializer(wrongInput)).to.be.rejectedWith(Error)
   })
 
-  it('should check function with proper data provided', async () => {
+  it('check returning value when proper arguments provided', async () => {
     const data = await movieSerializer(movie)
 
     chai.expect(data.id).to.be.eq(movieData.id)
@@ -26,7 +26,7 @@ describe('test movieSerailizer', async () => {
     chai.expect(data.country).to.be.eq(movieData.country)
   })
 
-  it('should check function with proper data provided with deep false', async () => {
+  it('check returning value when proper arguments provided with deep = false', async () => {
     const data = await movieSerializer(movie, false)
 
     chai.expect(data.title).to.be.eq(movieData.title)
