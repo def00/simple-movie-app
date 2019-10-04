@@ -2,6 +2,8 @@ import express from 'express'
 import logger from 'morgan'
 import moviesRouter from './routes/movies'
 import commentsRouter from './routes/comments'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express()
 
