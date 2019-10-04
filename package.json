@@ -2,6 +2,9 @@
   "name": "simple-movie-app",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "11.13.0"
+  },
   "scripts": {
     "dev": "npx babel-node ./bin/www",
     "db:migrate": "npx knex migrate:latest",
