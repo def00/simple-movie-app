@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84ce7902-55de-4620-a477-59ddf015771a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/api-key.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/api-key.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/comments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/movies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/knexfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/unit/data-providers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -50,12 +47,15 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/middleware" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/unit/data-providers" />
+      <recent name="$PROJECT_DIR$/src/test/unit" />
       <recent name="$PROJECT_DIR$/routes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/unit/data-providers" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/middleware" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,7 +80,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570114650106</updated>
-      <workItem from="1570114651983" duration="26134000" />
+      <workItem from="1570114651983" duration="27087000" />
+      <workItem from="1570176975671" duration="23026000" />
     </task>
     <servers />
   </component>
@@ -92,7 +93,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
