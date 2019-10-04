@@ -52,8 +52,7 @@
     "env": {
       "test": {
         "presets": [
-          "@babel/preset-env",
-          {"useBuiltIns": "entry"}
+          "@babel/preset-env"
         ],
         "plugins": [
           [
@@ -67,8 +66,7 @@
       },
       "developnent": {
         "presets": [
-          "@babel/preset-env",
-          {"useBuiltIns": "entry"}
+          "@babel/preset-env"
         ],
         "plugins": [
           [
@@ -82,8 +80,7 @@
       },
       "production": {
         "presets": [
-          "@babel/preset-env",
-          {"useBuiltIns": "entry"}
+          "@babel/preset-env"
 
         ],
         "plugins": [
