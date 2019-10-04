@@ -8,11 +8,12 @@
     "db:seed": "npx knex seed:run",
     "test": "ENV=test npx knex migrate:latest && ENV=test npx knex seed:run && BABEL_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit",
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "./node_modules/.bin/babel -d ./build ./src -s",
+    "build-babel": "./node_modules/.bin/babel -d ./build ./src -s --presets \"@babel/preset-env\" --plugins \"@babel/plugin-transform-runtime\"",
     "build": "npm run clean && npm run build-babel",
     "start": "node ./build/app.js"
   },
   "dependencies": {
+    "@babel/runtime-corejs2": "^7.6.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.1.0",
@@ -48,11 +49,47 @@
     "env": {
       "test": {
         "presets": [
-          "@babel/preset-env"
+          "@babel/preset-env",
+          {"useBuiltIns": "entry"}
         ],
         "plugins": [
           [
-            "@babel/plugin-transform-runtime"
+            "@babel/plugin-transform-runtime",
+            {
+              "regenerator": true,
+              "corejs": 2
+            }
+          ]
+        ]
+      },
+      "developnent": {
+        "presets": [
+          "@babel/preset-env",
+          {"useBuiltIns": "entry"}
+        ],
+        "plugins": [
+          [
+            "@babel/plugin-transform-runtime",
+            {
+              "regenerator": true,
+              "corejs": 2
+            }
+          ]
+        ]
+      },
+      "production": {
+        "presets": [
+          "@babel/preset-env",
+          {"useBuiltIns": "entry"}
+
+        ],
+        "plugins": [
+          [
+            "@babel/plugin-transform-runtime",
+            {
+              "regenerator": true,
+              "corejs": 2
+            }
           ]
         ]
       }
