@@ -1,12 +1,10 @@
-'use strict'
+const dotenv = require('dotenv')
+dotenv.config()
 
-// ref: https://devhints.io/knex
 module.exports = {
   development: {
-    client: 'sqlite',
-    connection: {
-      filename: "./dev-db.sqlite"
-    },
+    client: 'mysql',
+    connection: process.env.CONNECTION_STRING,
     migrations: {
       tableName: 'knex_migrations',
       directory: `${ __dirname }/db/migrations`
@@ -29,18 +27,11 @@ module.exports = {
     }
   },
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    client: 'mysql',
+    connection: process.env.CONNECTION_STRING,
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: `${ __dirname }/db/migrations`
     }
   }
 }

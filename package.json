@@ -18,6 +18,8 @@
     "jade": "~1.11.0",
     "knex": "^0.19.4",
     "morgan": "~1.9.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
     "objection": "^1.6.11",
     "request-promise-native": "^1.0.7",
     "sqlite3": "^4.1.0"
