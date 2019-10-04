@@ -3,5 +3,5 @@ dist/
 node_modules/
 thumbs.db
 .idea/
-mydb.sqlite
+*.sqlite
 .env

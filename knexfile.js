@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite',
     connection: {
-      filename: "./mydb.sqlite"
+      filename: "./dev-db.sqlite"
     },
     migrations: {
       tableName: 'knex_migrations',
@@ -15,19 +15,17 @@ module.exports = {
       directory: `${ __dirname }/db/seeds`
     }
   },
-  staging: {
-    client: 'postgresql',
+  test: {
+    client: 'sqlite',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      filename: "./test-db.sqlite"
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: `${ __dirname }/db/migrations`
+    },
+    seeds: {
+      directory: `${ __dirname }/db/seeds`
     }
   },
   production: {
