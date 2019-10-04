@@ -1,6 +1,10 @@
 import commentSerializer from './comment-serializer'
 import serializer from './serializer'
 export default async function(movie, deep = true) {
+  if (deep && (typeof movie.comments !== 'function' || !movie.id)) {
+    throw new Error('Wrong input data for serializer')
+  }
+
   if (deep) {
     const comments = await serializer(await movie.comments(), (comment) => commentSerializer(comment, false))
     return {

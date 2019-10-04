@@ -1,5 +1,3 @@
-'use strict'
-
 export default class {
   constructor(repository) {
     this.repository = repository

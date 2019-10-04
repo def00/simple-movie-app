@@ -1,5 +1,3 @@
-'use strict'
-
 import {Model} from 'objection'
 import knex from '../../config/database'
 import Comment from './comment'

@@ -1,5 +1,3 @@
-'use strict'
-
 import express from 'express'
 import Comment from '../models/comment'
 import commentSerializer from '../services/serializers/comment-serializer'

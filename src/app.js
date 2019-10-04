@@ -1,6 +1,4 @@
 import express from 'express'
-import path from 'path'
-import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import moviesRouter from './routes/movies'
 import commentsRouter from './routes/comments'
@@ -10,8 +8,6 @@ const app = express()
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/movies', moviesRouter)
 app.use('/comments', commentsRouter)

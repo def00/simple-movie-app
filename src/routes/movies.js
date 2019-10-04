@@ -1,4 +1,3 @@
-'use strict'
 import express from 'express'
 import request from 'request-promise-native'
 import Movie from '../models/movie'
@@ -18,9 +17,13 @@ router.get('/', async (req, res) => {
 
 /* POST search for movies */
 router.post('/', async (req, res) => {
-  const movieData = await new MoviesSearch(request).search(req.body.query)
-  if (movieData) {
-    await movieFactory.create(movieData)
+  try {
+    const movieData = await new MoviesSearch(request).search(req.body.query)
+    if (movieData) {
+      await movieFactory.create(movieData)
+    }
+  } catch (error) {
+    return res.status(500).json(error.error)
   }
   return res.status(201).send()
 })
