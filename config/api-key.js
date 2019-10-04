@@ -1,3 +1,2 @@
-'use strict'
-const API_URL = process.env.API_KEY
+const API_URL = '6fcfdf94'
 export default API_URL;
