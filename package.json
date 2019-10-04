@@ -8,7 +8,7 @@
     "db:seed": "npx knex seed:run",
     "test": "ENV=test npx knex migrate:latest && ENV=test npx knex seed:run && BABEL_ENV=test mocha --require @babel/register './src/**/*.spec.js*' --exit",
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "npx babel -d ./build ./src -s",
+    "build-babel": "./node_modules/.bin/babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
     "start": "node ./build/index.js"
   },
