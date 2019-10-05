@@ -1,4 +1,4 @@
-# Simple movie API
+# Simple movies API
 
 ### Installation
 1. Run docker-compose up to start docker
